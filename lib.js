@@ -22,11 +22,18 @@ const listedPrice =
 /**
  * transform carts into an array of { customer, total }
  */
+
 const calculateTotals =
   listings =>
-    carts => {
-      // TODO
-    }
+    carts =>
+      carts
+        .map(cart =>
+          ({ customer: cart.customer, total: (
+          cart.items
+            .reduce((custTotal, item) => custTotal += listings
+              .reduce((itemTotal, name) => itemTotal + listedPrice(name)(item), 0), 0)
+          )})
+        )
 
 module.exports = {
   listing,
